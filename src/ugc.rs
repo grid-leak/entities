@@ -23,13 +23,13 @@ pub struct Model {
     pub created_at: DateTimeUtc,
     pub updated_at: DateTimeUtc,
     pub published: bool,
-    pub x: f64,
-    pub y: f64,
-    pub z: f64,
-    pub qx: f64,
-    pub qy: f64,
-    pub qz: f64,
-    pub qw: f64,
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+    pub qx: f32,
+    pub qy: f32,
+    pub qz: f32,
+    pub qw: f32,
 }
 
 impl ActiveModelBehavior for ActiveModel {}
