@@ -21,7 +21,13 @@ pub struct Model {
     pub user: HasOne<super::users::Entity>,
     #[sea_orm(unique_key = "user_ugc_unique")]
     pub ugc_id: Uuid,
-    #[sea_orm(belongs_to, from = "ugc_id", to = "id")]
+    #[sea_orm(
+        belongs_to,
+        from = "ugc_id",
+        to = "id",
+        on_update = "NoAction",
+        on_delete = "Cascade"
+    )]
     pub ugc: HasOne<super::ugc::Entity>,
     pub entry_type: UgcEntryType,
     #[sea_orm(indexed)]

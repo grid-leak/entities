@@ -10,7 +10,13 @@ pub struct Model {
     pub user: HasOne<super::users::Entity>,
     #[sea_orm(primary_key, auto_increment = false)]
     pub ugc_id: Uuid,
-    #[sea_orm(belongs_to, from = "ugc_id", to = "id")]
+    #[sea_orm(
+        belongs_to,
+        from = "ugc_id",
+        to = "id",
+        on_update = "NoAction",
+        on_delete = "Cascade"
+    )]
     pub ugc: HasOne<super::ugc::Entity>,
     #[sea_orm(default = "false")]
     pub reported: bool,
